@@ -1,0 +1,17 @@
+{
+  "name": "teambot",
+  "version": "0.0.1",
+  "description": "A template Discord bot for team managing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord"
+  ],
+  "author": "AFCMS",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  }
+}
