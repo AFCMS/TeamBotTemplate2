@@ -22,9 +22,10 @@ client.once("ready", () => {
 
 client.on("message", async message => {
 	if (message.content === mentionString) {
-		message.channel.send(`Hello!`);
+		message.channel.send(`Ping!`);
 		return;
 	}
+	message.channel.send(`Hello!`);
 });
 
 
