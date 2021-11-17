@@ -10,7 +10,7 @@ if (!config.token) {
 	return;
 }
 
-console.log(config.token);
+// console.log(config.token);
 
 const client = new Discord.Client({
 	intents: [
@@ -20,6 +20,7 @@ const client = new Discord.Client({
 });
 
 
+// Import all Commands
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 
 const commands = [];
@@ -36,10 +37,14 @@ let mentionString = "";
 
 client.once("ready", () => {
 	console.log(`Logged in as ${client.user.tag}.`);
+
+	const CLIENT_ID = client.user.id
 	mentionString = `<@!${client.user.id}>`
 
+	// Modify bot activity
 	client.user.setActivity("no one.", {type: "LISTENING"});
-	const CLIENT_ID = client.user.id
+
+	// Register Commands
 	const rest = new REST({
 		version: "9"
 	}).setToken(config.token);
@@ -54,6 +59,7 @@ client.once("ready", () => {
 	});
 });
 
+// Execute Commands then needed
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
