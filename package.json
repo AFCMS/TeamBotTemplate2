@@ -10,7 +10,7 @@
     "discord"
   ],
   "author": "AFCMS",
-  "license": " 	GPL-3.0-or-later",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "discord.js": "^13.3.1"
   }
