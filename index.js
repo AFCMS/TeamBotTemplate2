@@ -1,4 +1,6 @@
+const fs = require("fs");
 const { REST } = require("@discordjs/rest");
+const { Routes } = require("discord-api-types/v9");
 const Discord = require("discord.js");
 const config = require('./config.json')
 
@@ -17,6 +19,19 @@ const client = new Discord.Client({
 	]
 });
 
+
+const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
+
+const commands = [];
+
+clients.commands = new Collection();
+
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	commands.push(command.data.toJSON());
+	client.commands.set(command.data.name, command);
+}
+
 let mentionString = "";
 
 client.once("ready", () => {
@@ -24,6 +39,19 @@ client.once("ready", () => {
 	mentionString = `<@!${client.user.id}>`
 
 	client.user.setActivity("no one.", {type: "LISTENING"});
+	const CLIENT_ID = client.user.id
+	const rest = new REST({
+		version: "9"
+	}).setToken(config.token);
+
+	(async () => {
+		try {
+			await rest.put(Routes.applicationCommand(CLIENT_ID), {
+				body: commands
+			})
+			console.log("Commands Registered!");
+		} finally {}
+	});
 });
 
 client.on("messageCreate", async message => {
