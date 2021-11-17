@@ -25,12 +25,12 @@ client.once("ready", () => {
 	client.user.setActivity("no one.", {type: "LISTENING"});
 });
 
-client.on("message", async message => {
+client.on("messageCreate", async message => {
 	if (message.content === mentionString) {
-		message.channel.send(`Ping!`);
+		message.reply(`Ping!`);
 		return;
 	}
-	message.channel.send(`Hello!`);
+	//message.channel.send(`Hello!`);
 });
 
 
