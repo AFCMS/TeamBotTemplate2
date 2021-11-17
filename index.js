@@ -8,3 +8,24 @@ if (!config.token) {
 }
 
 console.log(config.token);
+
+const client = new Discord.Client();
+
+let mentionString = "";
+
+client.once("ready", () => {
+	console.log(`Logged in as ${client.user.tag}.`);
+	mentionString = `<@!${client.user.id}>`
+
+	client.user.setActivity("no one.", {type: "LISTENING"});
+});
+
+client.on("message", async message => {
+	if (message.content === mentionString) {
+		message.channel.send(`Hello!`);
+		return;
+	}
+});
+
+
+client.login(token);
