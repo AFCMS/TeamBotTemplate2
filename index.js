@@ -9,7 +9,12 @@ if (!config.token) {
 
 console.log(config.token);
 
-const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.GUILD_MESSAGES] });
+const client = new Discord.Client({
+	intents: [
+		Discord.Intents.FLAGS.GUILDS,
+		Discord.Intents.FLAGS.GUILD_MESSAGES
+	]
+});
 
 let mentionString = "";
 
