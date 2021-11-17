@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { REST } = require("@discordjs/rest");
-const { Routes, Collection } = require("discord-api-types/v9");
+const { Routes } = require("discord-api-types/v9");
 const Discord = require("discord.js");
 const config = require('./config.json')
 
@@ -24,7 +24,7 @@ const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith("
 
 const commands = [];
 
-client.commands = new Collection();
+client.commands = new Discord.Collection();
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
