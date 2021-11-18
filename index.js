@@ -59,7 +59,7 @@ client.once("ready", () => {
 		description: "Good morning command"
 	});
 
-	const existing_commands = guild.commands.fetch();
+	const existing_commands = await guild.commands.fetch();
 	console.log(existing_commands);
 
 	//for (const command of commands) {
