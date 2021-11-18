@@ -1,7 +1,7 @@
-const fs = require("fs");
-const { REST } = require("@discordjs/rest");
+//const fs = require("fs");
+//const { REST } = require("@discordjs/rest");
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Routes } = require("discord-api-types/v9");
+//const { Routes } = require("discord-api-types/v9");
 const Discord = require("discord.js");
 const config = require('./config.json')
 
@@ -41,7 +41,7 @@ client.once("ready", async () => {
 
 	const guild = client.guilds.resolve(config.guildid);
 
-	guild.commands.set(commands).then(console.log).catch(console.log);
+	guild.commands.set(commands).catch(console.log);
 
 	// Remove unused commands
 	//const existing_commands = await guild.commands.fetch();
