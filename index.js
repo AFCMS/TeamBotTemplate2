@@ -58,7 +58,7 @@ client.once("ready", () => {
 	//const cache = client.application.commands.fetch({ guildId: config.guildid });
 	//console.log(cache);
 	//const id = cache.find(command => command.name = commands[1].name).id;
-	const cache = await client.guilds.cache.get(config.guildid);
+	const cache = client.guilds.cache.get(config.guildid);
 
 	console.log(cache);
 	const id = cache.find(command => command.name = commands[1].name).id;
