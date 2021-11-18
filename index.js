@@ -55,7 +55,9 @@ client.once("ready", () => {
 				body: commands
 			})
 			console.log("Commands Registered!");
-		} finally {}
+		} catch (err) {
+			console.log(err);
+		}
 	});
 });
 
