@@ -36,7 +36,7 @@ client.once("ready", () => {
 	for (const command of commands) {
 		client.api.applications(client.user.id).guilds(config.guildid).commands.post({data: command})
 	}
-	client.application.commands.delete("test", config.guildid)
+	client.application.commands.delete({name: "test"}, config.guildid)
 });
 
 client.login(config.token);
