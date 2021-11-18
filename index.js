@@ -56,6 +56,7 @@ client.once("ready", () => {
 		client.api.applications(client.user.id).guilds(config.guildid).commands.post({data: commands})
 	}
 	const cache = client.application.commands.fetch({ guildId: config.guildid });
+	console.log(cache);
 	const id = cache.find(command => command.name = commands[1].name).id;
 	client.application.commands.delete(id, config.guildid);
 });
