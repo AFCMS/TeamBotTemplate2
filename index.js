@@ -59,7 +59,17 @@ client.once("ready", async () => {
 		description: "Good morning command"
 	});
 
+	// Remove unused commands
 	const existing_commands = await guild.commands.fetch();
+	const unused_commands = [
+		"test"
+	];
+	for (cname in unused_commands) {
+		const result = existing_commands.find(command => command.name = commands[1].name)
+		if (result) {
+			guild.commands.remove(result.id);
+		}
+	}
 	console.log(existing_commands.find(command => command.name = commands[1].name).id);
 
 	//for (const command of commands) {
