@@ -51,9 +51,12 @@ client.once("ready", () => {
 
 	(async () => {
 		try {
-			await rest.put(Routes.applicationCommand(CLIENT_ID), {
+			//await rest.put(Routes.applicationCommand(CLIENT_ID), {
+			//	body: commands
+			//})
+			await rest.put(Routes.applicationGuildCommands(CLIENT_ID, config.guildid), {
 				body: commands
-			})
+			});
 			console.log("Commands Registered!");
 		} catch (err) {
 			console.log(err);
