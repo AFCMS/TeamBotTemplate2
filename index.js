@@ -48,7 +48,7 @@ client.once("ready", () => {
 	// Register Commands
 	const rest = new REST({
 		version: "9"
-	}).setToken(config.token);
+	}).setToken("Bot "+config.token);
 
 	(async () => {
 		try {
