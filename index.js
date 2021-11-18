@@ -21,27 +21,33 @@ const client = new Discord.Client({
 	]
 });
 
-//const commands = [];
+const commands = [];
 
-//commands.push(
-//	new SlashCommandBuilder()
-//		.setName('team')
-//		.setDescription('A dummy command'),
-//);
-
-const commands = new Discord.ApplicationCommandManager();
-
-commands.create(
+commands.push(
 	new SlashCommandBuilder()
 		.setName('team')
 		.setDescription('A dummy command'),
 );
 
-commands.create(
+commands.push(
 	new SlashCommandBuilder()
 		.setName('test')
 		.setDescription('A dummy command'),
 );
+
+//const commands = new Discord.ApplicationCommandManager();
+
+//commands.create(
+//	new SlashCommandBuilder()
+//		.setName('team')
+//		.setDescription('A dummy command'),
+//);
+
+//commands.create(
+//	new SlashCommandBuilder()
+//		.setName('test')
+//		.setDescription('A dummy command'),
+//);
 
 client.once("ready", () => {
 	console.log(`Logged in as ${client.user.tag}.`);
@@ -49,7 +55,7 @@ client.once("ready", () => {
 	for (const command of commands) {
 		client.api.applications(client.user.id).guilds(config.guildid).commands.post({data: commands})
 	}
-	client.application.commands.delete({name: "test"}, config.guildid)
+	client.application.commands.delete(commands[1], config.guildid)
 });
 
 client.login(config.token);
