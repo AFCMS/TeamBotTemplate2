@@ -59,6 +59,12 @@ client.once("ready", async () => {
 		description: "Good morning command"
 	});
 
+	guild.commands.create(
+		new SlashCommandBuilder()
+			.setName('team')
+			.setDescription('A dummy team command'),
+	);
+
 	// Remove unused commands
 	const existing_commands = await guild.commands.fetch();
 	const unused_commands = [
@@ -71,20 +77,6 @@ client.once("ready", async () => {
 		}
 	}
 	console.log(existing_commands.find(command => command.name = commands[1].name).id);
-
-	//for (const command of commands) {
-	//	client.api.applications(client.user.id).guilds(config.guildid).commands.post({data: commands})
-	//}
-	//const cache = client.application.commands.fetch({ guildId: config.guildid });
-	//console.log(cache);
-	//const id = cache.find(command => command.name = commands[1].name).id;
-	//const cache = client.guilds.cache.get(config.guildid);
-
-	//console.log(cache);
-	//console.log(cache.commands);
-	//const id = cache.find(command => command.name == commands[1].name).id;
-	//const id2 = cache.commands;
-	//client.api.application.guilds.commands.delete(id);
 });
 
 client.on("interactionCreate", async(interaction) => {
