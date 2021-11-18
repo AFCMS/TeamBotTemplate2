@@ -55,7 +55,11 @@ client.once("ready", () => {
 	for (const command of commands) {
 		client.api.applications(client.user.id).guilds(config.guildid).commands.post({data: commands})
 	}
-	client.application.commands.delete(commands[1].id, config.guildid)
+	client.application.commands.delete(commands[1], config.guildid)
+});
+
+client.on("interactionCreate", async(interaction) => {
+	interaction.reply({content: "You used a command!"})
 });
 
 client.login(config.token);
