@@ -63,7 +63,7 @@ client.once("ready", () => {
 	console.log(cache);
 	console.log(cache.commands);
 	const id = cache.find(command => command.name = commands[1].name).id;
-	const id = cache.commands;
+	const id2 = cache.commands;
 	client.api.application.guilds.commands.delete(id);
 });
 
