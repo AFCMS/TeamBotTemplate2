@@ -67,7 +67,7 @@ client.once("ready", async () => {
 	for (cname in unused_commands) {
 		const result = existing_commands.find(command => command.name = commands[1].name)
 		if (result) {
-			guild.commands.remove(result.id);
+			guild.commands.delete(result.id);
 		}
 	}
 	console.log(existing_commands.find(command => command.name = commands[1].name).id);
