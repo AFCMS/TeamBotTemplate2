@@ -60,7 +60,7 @@ client.once("ready", async () => {
 	});
 
 	const existing_commands = await guild.commands.fetch();
-	console.log(existing_commands.find(command => command.name = commands[1].name));
+	console.log(existing_commands.find(command => command.name = commands[1].name).id);
 
 	//for (const command of commands) {
 	//	client.api.applications(client.user.id).guilds(config.guildid).commands.post({data: commands})
