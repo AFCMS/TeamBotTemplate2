@@ -49,7 +49,7 @@ commands.push(
 //		.setDescription('A dummy command'),
 //);
 
-client.once("ready", () => {
+client.once("ready", async () => {
 	console.log(`Logged in as ${client.user.tag}.`);
 
 	const guild = client.guilds.resolve(config.guildid);
