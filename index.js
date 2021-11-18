@@ -58,7 +58,7 @@ client.once("ready", () => {
 		} catch (err) {
 			console.log(err);
 		}
-	});
+	})();
 });
 
 // Execute Commands then needed
