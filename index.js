@@ -55,7 +55,9 @@ client.once("ready", () => {
 	for (const command of commands) {
 		client.api.applications(client.user.id).guilds(config.guildid).commands.post({data: commands})
 	}
-	client.application.commands.delete(client.application.commands.cache.find(command => command.name = commands[1].name).id, config.guildid)
+	await client.application.commands.fetch({ guildId });
+	const id = cache.find(command => command.name = commands[1].name).id;
+	await client.application.commands.delete(id, config.guildid);
 });
 
 client.on("interactionCreate", async(interaction) => {
