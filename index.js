@@ -1,8 +1,7 @@
 //const fs = require("fs");
-//const { REST } = require("@discordjs/rest");
-const { SlashCommandBuilder } = require('@discordjs/builders');
-//const { Routes } = require("discord-api-types/v9");
 const Discord = require("discord.js");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
 const config = require('./config.json')
 
 // Error if missing configuration
@@ -32,7 +31,8 @@ commands.push(
 commands.push(
 	new SlashCommandBuilder()
 		.setName('test')
-		.setDescription('A dummy command'),
+		.setDescription('A dummy command')
+		//.addStringOption(input)
 );
 
 
@@ -42,23 +42,21 @@ client.once("ready", async () => {
 	const guild = client.guilds.resolve(config.guildid);
 
 	guild.commands.set(commands).catch(console.log);
-
-	// Remove unused commands
-	//const existing_commands = await guild.commands.fetch();
-	//const unused_commands = [
-	//	"test"
-	//];
-	//for (cname in unused_commands) {
-	//	const result = existing_commands.find(command => command.name = commands[1].name)
-	//	if (result) {
-	//		guild.commands.delete(result.id);
-	//	}
-	//}
-	//console.log(existing_commands.find(command => command.name = commands[1].name).id);
 });
 
 client.on("interactionCreate", async(interaction) => {
-	interaction.reply({content: "You used a command!"})
+	if (!interaction.isCommand()) {
+		return
+	}
+
+	const {commandName, options} = interaction
+
+	if (commandName === "test") {
+		interaction.reply({
+			content: "You used a command!",
+			//ephemeral: true,
+		})
+	}
 });
 
 client.login(config.token);
