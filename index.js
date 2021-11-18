@@ -55,10 +55,14 @@ client.once("ready", () => {
 	for (const command of commands) {
 		client.api.applications(client.user.id).guilds(config.guildid).commands.post({data: commands})
 	}
-	const cache = client.application.commands.fetch({ guildId: config.guildid });
+	//const cache = client.application.commands.fetch({ guildId: config.guildid });
+	//console.log(cache);
+	//const id = cache.find(command => command.name = commands[1].name).id;
+	const cache = await client.guilds.cache.get(config.guildid);
+
 	console.log(cache);
 	const id = cache.find(command => command.name = commands[1].name).id;
-	client.application.commands.delete(id, config.guildid);
+	client.api.application.guilds.commands.delete(id);
 });
 
 client.on("interactionCreate", async(interaction) => {
