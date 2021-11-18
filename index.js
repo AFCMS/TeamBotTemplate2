@@ -41,20 +41,20 @@ client.once("ready", async () => {
 
 	const guild = client.guilds.resolve(config.guildid);
 
-	guild.commands.set(commands);
+	guild.commands.set(commands).then(console.log).catch(console.log);
 
 	// Remove unused commands
-	const existing_commands = await guild.commands.fetch();
-	const unused_commands = [
-		"test"
-	];
-	for (cname in unused_commands) {
-		const result = existing_commands.find(command => command.name = commands[1].name)
-		if (result) {
-			guild.commands.delete(result.id);
-		}
-	}
-	console.log(existing_commands.find(command => command.name = commands[1].name).id);
+	//const existing_commands = await guild.commands.fetch();
+	//const unused_commands = [
+	//	"test"
+	//];
+	//for (cname in unused_commands) {
+	//	const result = existing_commands.find(command => command.name = commands[1].name)
+	//	if (result) {
+	//		guild.commands.delete(result.id);
+	//	}
+	//}
+	//console.log(existing_commands.find(command => command.name = commands[1].name).id);
 });
 
 client.on("interactionCreate", async(interaction) => {
