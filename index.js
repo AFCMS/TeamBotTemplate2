@@ -52,19 +52,29 @@ commands.push(
 client.once("ready", () => {
 	console.log(`Logged in as ${client.user.tag}.`);
 
-	for (const command of commands) {
-		client.api.applications(client.user.id).guilds(config.guildid).commands.post({data: commands})
-	}
+	const guild = client.guilds.resolve(config.guildid);
+
+	guild.commands.create({
+		name: "goodmorning",
+		description: "Good morning command"
+	});
+
+	const existing_commands = guild.commands.fetch();
+	console.log(existing_commands);
+
+	//for (const command of commands) {
+	//	client.api.applications(client.user.id).guilds(config.guildid).commands.post({data: commands})
+	//}
 	//const cache = client.application.commands.fetch({ guildId: config.guildid });
 	//console.log(cache);
 	//const id = cache.find(command => command.name = commands[1].name).id;
-	const cache = client.guilds.cache.get(config.guildid);
+	//const cache = client.guilds.cache.get(config.guildid);
 
-	console.log(cache);
-	console.log(cache.commands);
-	const id = cache.find(command => command.name == commands[1].name).id;
-	const id2 = cache.commands;
-	client.api.application.guilds.commands.delete(id);
+	//console.log(cache);
+	//console.log(cache.commands);
+	//const id = cache.find(command => command.name == commands[1].name).id;
+	//const id2 = cache.commands;
+	//client.api.application.guilds.commands.delete(id);
 });
 
 client.on("interactionCreate", async(interaction) => {
