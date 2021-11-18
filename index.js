@@ -61,7 +61,9 @@ client.once("ready", () => {
 	const cache = client.guilds.cache.get(config.guildid);
 
 	console.log(cache);
+	console.log(cache.commands);
 	const id = cache.find(command => command.name = commands[1].name).id;
+	const id = cache.commands;
 	client.api.application.guilds.commands.delete(id);
 });
 
