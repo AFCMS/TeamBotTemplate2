@@ -35,35 +35,13 @@ commands.push(
 		.setDescription('A dummy command'),
 );
 
-//const commands = new Discord.ApplicationCommandManager();
-
-//commands.create(
-//	new SlashCommandBuilder()
-//		.setName('team')
-//		.setDescription('A dummy command'),
-//);
-
-//commands.create(
-//	new SlashCommandBuilder()
-//		.setName('test')
-//		.setDescription('A dummy command'),
-//);
 
 client.once("ready", async () => {
 	console.log(`Logged in as ${client.user.tag}.`);
 
 	const guild = client.guilds.resolve(config.guildid);
 
-	guild.commands.create({
-		name: "goodmorning",
-		description: "Good morning command"
-	});
-
-	guild.commands.create(
-		new SlashCommandBuilder()
-			.setName('team')
-			.setDescription('A dummy team command'),
-	);
+	guild.commands.set(commands);
 
 	// Remove unused commands
 	const existing_commands = await guild.commands.fetch();
