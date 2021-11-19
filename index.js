@@ -28,6 +28,7 @@ commands.push(
 		.setDescription('A dummy command')
 		.addSubcommandGroup((group) => group
 			.setName("management")
+			.setDescription('Manage teams')
 			.addSubcommand((subcommand) => subcommand
 				.setName("create")
 				.setDescription("Create a new Team")
