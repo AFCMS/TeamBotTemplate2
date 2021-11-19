@@ -26,13 +26,16 @@ commands.push(
 	new SlashCommandBuilder()
 		.setName('team')
 		.setDescription('A dummy command')
-		.addSubcommand((subcommand) => subcommand
-			.setName("create")
-			.setDescription("Create a new Team")
-		)
-		.addSubcommand((subcommand) => subcommand
-			.setName("delete")
-			.setDescription("Create a new Team")
+		.addSubcommandGroup((group) => group
+			.setName("Management")
+			.addSubcommand((subcommand) => subcommand
+				.setName("create")
+				.setDescription("Create a new Team")
+			)
+			.addSubcommand((subcommand) => subcommand
+				.setName("delete")
+				.setDescription("Create a new Team")
+			)
 		)
 );
 
