@@ -54,7 +54,7 @@ client.on("interactionCreate", async(interaction) => {
 	if (commandName === "test") {
 		var tr = new Discord.MessageEmbed()
 			.setTitle("Title")
-			.setColor("red")
+			.setColor("RED")
 			.setTimestamp()
 		//.addField({name: "test", value: "ttt", inline: true}) ;
 		//interaction.reply({
