@@ -30,6 +30,10 @@ commands.push(
 			.setName("create")
 			.setDescription("Create a new Team")
 		)
+		.addSubcommand((subcommand) => subcommand
+			.setName("delete")
+			.setDescription("Create a new Team")
+		)
 );
 
 commands.push(
