@@ -52,16 +52,18 @@ client.on("interactionCreate", async(interaction) => {
 	const {commandName, options} = interaction
 
 	if (commandName === "test") {
-		var tr = new Discord.MessageEmbed({
-			title: "Hello!",
-			description: "A description",
-		})//.addField({name: "test", value: "ttt", inline: true}) ;
+		var tr = new Discord.MessageEmbed()
+			.setTitle("Title")
+			.setColor("red")
+			.setTimestamp()
+		//.addField({name: "test", value: "ttt", inline: true}) ;
 		//interaction.reply({
 		//	content: "You used a command!",
 			//ephemeral: true,
 		//})
 		interaction.reply({
-			content: tr,
+			embeds: [tr]
+			//content: tr,
 			//ephemeral: true,
 		})
 	}
