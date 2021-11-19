@@ -25,7 +25,11 @@ const commands = [];
 commands.push(
 	new SlashCommandBuilder()
 		.setName('team')
-		.setDescription('A dummy command'),
+		.setDescription('A dummy command')
+		.addSubcommand((subcommand) => subcommand
+			.setName("create")
+			.setDescription("Create a new Team")
+		)
 );
 
 commands.push(
@@ -66,7 +70,14 @@ client.on("interactionCreate", async(interaction) => {
 			//content: tr,
 			//ephemeral: true,
 		})
-	}
+	} else if (commandName === "team") {
+		console.log(interaction)
+		interaction.reply({
+			//embeds: [tr]
+			content: "Hello! :partying_face:",
+			//ephemeral: true,
+		})
+	} 
 });
 
 client.login(config.token);
