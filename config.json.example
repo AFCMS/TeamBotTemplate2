@@ -1,4 +1,17 @@
 {
 	"token": "Bot ABCDEFGHIJKLMNOPQRSTUVWXYZ.1234567890",
 	"guildid": "the id of you server",
+	"teamLayout": {
+		"general1": {
+			"type": "text",
+			"name": "general"
+		},
+		"voice1": {
+			"type": "voice",
+			"name": "Vocal Chat",
+			"properties": {
+				"max_users": 3
+			}
+		}
+	}
 }
