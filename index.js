@@ -26,6 +26,7 @@ commands.push(
 	new SlashCommandBuilder()
 		.setName('team')
 		.setDescription('A dummy command')
+		/*
 		.addSubcommandGroup((group) => {return group
 			.setName("management")
 			.setDescription('Manage teams')
@@ -38,6 +39,7 @@ commands.push(
 				.setDescription("Create a new Team")
 			})
 		})
+		*/
 );
 
 commands.push(
