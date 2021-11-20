@@ -14,18 +14,18 @@ const client = new Discord.Client({
 const pointsCommand = new SlashCommandBuilder().setName('points').setDescription('Lists or manages user points');
 
 // Add a manage group
-pointsCommand.addSubcommandGroup((group) =>
+pointsCommand.addSubcommandGroup(group =>
 	group
 		.setName('manage')
 		.setDescription('Shows or manages points in the server')
-		.addSubcommand((subcommand) =>
+		.addSubcommand(subcommand =>
 			subcommand
 				.setName('user_points')
 				.setDescription("Alters a user's points")
-				.addUserOption((option) =>
+				.addUserOption(option =>
 					option.setName('user').setDescription('The user whose points to alter').setRequired(true),
 				)
-				.addStringOption((option) =>
+				.addStringOption(option =>
 					option
 						.setName('action')
 						.setDescription('What action should be taken with the users points?')
@@ -36,23 +36,23 @@ pointsCommand.addSubcommandGroup((group) =>
 						])
 						.setRequired(true),
 				)
-				.addIntegerOption((option) => option.setName('points').setDescription('Points to add or remove')),
+				.addIntegerOption(option => option.setName('points').setDescription('Points to add or remove')),
 		),
 );
 
 // Add an information group
-pointsCommand.addSubcommandGroup((group) =>
+pointsCommand.addSubcommandGroup(group =>
 	group
 		.setName('info')
 		.setDescription('Shows information about points in the guild')
-		.addSubcommand((subcommand) =>
+		.addSubcommand(subcommand =>
 			subcommand.setName('total').setDescription('Tells you the total amount of points given in the guild'),
 		)
-		.addSubcommand((subcommand) =>
+		.addSubcommand(subcommand =>
 			subcommand
 				.setName('user')
 				.setDescription("Lists a user's points")
-				.addUserOption((option) =>
+				.addUserOption(option =>
 					option.setName('user').setDescription('The user whose points to list').setRequired(true),
 				),
 		),
