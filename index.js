@@ -26,11 +26,21 @@ commands.push(
 	new SlashCommandBuilder()
 		.setName('team')
 		.setDescription('A dummy command')
+		.addSubcommandGroup((group) => group
+			.setName("management")
+			.setDescription("Management command")
+			.addSubcommand((subcommand) => subcommand
+				.setName("create")
+				.setDescription("Test")
+			)
+		)
+		/*
 		.addUserOption((option) => option
 			.setName("user")
 			.setDescription("User")
 			.setRequired(false)
 		)
+		*/
 		/*
 		.addSubcommandGroup((group) => {return group
 			.setName("management")
