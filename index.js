@@ -22,6 +22,7 @@ const client = new Discord.Client({
 
 const commands = [];
 
+/*
 commands.push(
 	new SlashCommandBuilder()
 		.setName('team')
@@ -54,14 +55,31 @@ commands.push(
 				.setDescription("Create a new Team")
 			})
 		})
-		*/
+
 );
+*/
 
 commands.push(
 	new SlashCommandBuilder()
 		.setName('test')
 		.setDescription('A dummy command')
 		//.addStringOption(input)
+);
+
+commands.push(new SlashCommandBuilder()
+	.setName('info')
+	.setDescription('Get info about a user or a server!')
+	.addSubcommand(subcommand =>
+		subcommand
+			.setName('user')
+			.setDescription('Info about a user')
+			.addUserOption(option => option.setName('target').setDescription('The user'))
+		)
+	.addSubcommand(subcommand =>
+		subcommand
+			.setName('server')
+			.setDescription('Info about the server')
+		)
 );
 
 
