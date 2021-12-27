@@ -14,7 +14,7 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "discord.js": "^13.4.0",
-	"@discordjs/builders": "^0.8.2",
+	"@discordjs/builders": "^0.10.0",
 	"@discordjs/rest": "^0.2.0-canary.0"
   }
 }
