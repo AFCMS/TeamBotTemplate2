@@ -13,7 +13,7 @@
   "author": "AFCMS",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "discord.js": "^13.3.1",
+    "discord.js": "^13.4.0",
 	"@discordjs/builders": "^0.8.2",
 	"@discordjs/rest": "^0.1.0-canary.0"
   }
