@@ -82,6 +82,12 @@ commands.push(new SlashCommandBuilder()
 		)
 );
 
+commands.push(
+	new SlashCommandBuilder()
+		.setName('rank')
+		.setDescription('Rank')
+);
+
 
 client.once("ready", async () => {
 	console.log(`Logged in as ${client.user.tag}.`);
@@ -119,6 +125,18 @@ client.on("interactionCreate", async(interaction) => {
 			//embeds: [tr]
 			content: "Hello! :partying_face:",
 			//ephemeral: true,
+		})
+	} else if (commandName === "rank") {
+		console.log(interaction)
+		interaction.reply({
+			embeds: [new Discord.MessageEmbed()
+				.setColor("#0099ff")
+				.setTitle(`${stats.name}, ${ordinalSuffixOf(stats.place)}, ${mode}`)
+				.setDescription(`${stats.name} is in ${ordinalSuffixOf(stats.place)} place, with ${Math.round(stats.score)} score, ${mode} mode.`)
+				.addFields(fields)
+				.setTimestamp()],
+			//content: "Hello! :partying_face:",
+			ephemeral: true,
 		})
 	} 
 });

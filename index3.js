@@ -11,6 +11,8 @@ const client = new Discord.Client({
 	]
 });
 
+const commands = [];
+
 const pointsCommand = new SlashCommandBuilder().setName('points').setDescription('Lists or manages user points');
 
 // Add a manage group
@@ -58,6 +60,12 @@ pointsCommand.addSubcommandGroup(group =>
 		),
 );
 
+commands.push(pointsCommand);
+
+commands.push(new SlashCommandBuilder().setName('team').setDescription('Manage teams'));
+
+commands.push(new SlashCommandBuilder().setName('rank').setDescription('Rank'));
+
 // Get the final raw data that can be sent to Discord
 //const rawData = pointsCommand.toJSON();
 
@@ -66,7 +74,7 @@ client.once("ready", async () => {
 
 	const guild = client.guilds.resolve(config.guildid);
 
-	guild.commands.set([pointsCommand]).catch(console.log);
+	guild.commands.set(commands).catch(console.log);
 });
 
 client.on("interactionCreate", async(interaction) => {
@@ -94,11 +102,13 @@ client.on("interactionCreate", async(interaction) => {
 	} else if (commandName === "team") {
 		console.log(interaction)
 		interaction.reply({
-			//embeds: [tr]
+			//embeds: []
 			content: "Hello! :partying_face:",
 			//ephemeral: true,
 		})
-	} 
+	} else if (commandName === "rank") {
+
+	}
 });
 
 client.login(config.token);
