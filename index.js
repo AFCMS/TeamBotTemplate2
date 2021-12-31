@@ -97,7 +97,11 @@ commands.push(
 	new SlashCommandBuilder()
 		.setName('x')
 		.setDescription('Send message on staff channel')
-		.addStringOption(option => option.setName('message').setDescription('Enter message').setRequired(true))
+		.addStringOption(option => option
+			.setName('message')
+			.setDescription('Enter message')
+			.setRequired(true)
+		)
 );
 
 commands.push(
