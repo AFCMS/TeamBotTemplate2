@@ -161,8 +161,8 @@ client.on("interactionCreate", async(interaction) => {
 			ephemeral: true,
 		})
 	} else if (commandName === "mute") {
-		const user = interaction.options.getUser("user");
-		console.log("member:" + user)
+		const member = interaction.options.getMember("user");
+		console.log("member:" + member)
 		if (!interaction.memberPermissions.has("KICK_MEMBERS", true)) {
 			return interaction.reply({
 				content: `You dont have the permission to run this command.`,
@@ -170,7 +170,7 @@ client.on("interactionCreate", async(interaction) => {
 			})
 		}
 		let muterole = interaction.guild.roles.cache.find(role => role.name === "Muterated");
-		user.roles.add(muterole.id);
+		member.roles.add(muterole.id);
 		interaction.reply({
 			content: `**${member.user.username}** has been muted.`,
 			ephemeral: false,
