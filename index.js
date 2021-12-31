@@ -174,7 +174,6 @@ client.on("interactionCreate", async(interaction) => {
 				.setTitle(`Error`)
 				.setDescription("Please wait, stats are still loading...")
 			],
-			content: "Please wait, stats are still loading...",
 			ephemeral: true,
 		})
 	} else if (commandName === "mute") {
