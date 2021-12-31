@@ -168,8 +168,24 @@ client.on("interactionCreate", async(interaction) => {
 				ephemeral: true,
 			})
 		}
+		let muterole = interaction.guild.roles.cache.find(role => role.name === "Muterated");
+		user.roles.add(muterole.id);
 		interaction.reply({
 			content: `**${interaction.member.user.username}** has been muted.`,
+			ephemeral: false,
+		})
+	} else if (commandName === "unmute") {
+		const user = interaction.options.getUser("user");
+		if (!interaction.memberPermissions.has("KICK_MEMBERS", true)) {
+			return interaction.reply({
+				content: `You dont have the permission to run this command.`,
+				ephemeral: true,
+			})
+		}
+		let muterole = interaction.guild.roles.cache.find(role => role.name === "Muterated");
+		user.roles.remove(muterole.id);
+		interaction.reply({
+			content: `**${interaction.member.user.username}** has been unmuted.`,
 			ephemeral: false,
 		})
 	} else if (commandName === "shutupbot") {
