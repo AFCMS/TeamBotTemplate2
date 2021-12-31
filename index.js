@@ -208,7 +208,13 @@ client.on("interactionCreate", async(interaction) => {
 			})
 		}
 		interaction.reply({
-			content: interaction.options.getString("message"),
+			embeds: [
+				new Discord.MessageEmbed()
+					.setColor("#0099ff")
+					.setTitle(`Staff Message`)
+					.setAuthor(member.user.username)
+					.setDescription(interaction.options.getString("message"))
+			],
 			ephemeral: false,
 		})
 	} 
