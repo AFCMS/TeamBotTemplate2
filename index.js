@@ -90,6 +90,12 @@ commands.push(
 
 commands.push(
 	new SlashCommandBuilder()
+		.setName('shutupBot')
+		.setDescription('Stupid command')
+);
+
+commands.push(
+	new SlashCommandBuilder()
 		.setName('mute')
 		.setDescription('Mutes a user')
 		.addUserOption(option => option
@@ -164,6 +170,11 @@ client.on("interactionCreate", async(interaction) => {
 		}
 		interaction.reply({
 			content: `**${interaction.member.user.username}** has been muted.`,
+			ephemeral: false,
+		})
+	} else if (commandName === "shutupBot") {
+		interaction.reply({
+			content: `No.`,
 			ephemeral: false,
 		})
 	} 
