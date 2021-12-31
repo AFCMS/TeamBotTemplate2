@@ -90,6 +90,13 @@ commands.push(
 
 commands.push(
 	new SlashCommandBuilder()
+		.setName('x')
+		.setDescription('Send message on staff channel')
+		.addStringOption(option => option.setName('message').setDescription('Enter message'))
+);
+
+commands.push(
+	new SlashCommandBuilder()
 		.setName('shutupbot')
 		.setDescription('Stupid command')
 );
@@ -191,6 +198,17 @@ client.on("interactionCreate", async(interaction) => {
 	} else if (commandName === "shutupbot") {
 		interaction.reply({
 			content: `No.`,
+			ephemeral: false,
+		})
+	} else if (commandName === "x") {
+		if (!interaction.memberPermissions.has("KICK_MEMBERS", true)) {
+			return interaction.reply({
+				content: `You dont have the permission to run this command.`,
+				ephemeral: true,
+			})
+		}
+		interaction.reply({
+			content: interaction.options.getString("message"),
 			ephemeral: false,
 		})
 	} 
