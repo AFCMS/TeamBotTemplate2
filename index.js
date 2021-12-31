@@ -176,7 +176,7 @@ client.on("interactionCreate", async(interaction) => {
 		})
 	} else if (commandName === "unmute") {
 		const member = interaction.options.getUser("user")
-		console.log(member)
+		console.log("member:" + member)
 		if (!interaction.memberPermissions.has("KICK_MEMBERS", true)) {
 			return interaction.reply({
 				content: `You dont have the permission to run this command.`,
