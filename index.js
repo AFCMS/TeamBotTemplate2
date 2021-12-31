@@ -162,7 +162,6 @@ client.on("interactionCreate", async(interaction) => {
 		})
 	} else if (commandName === "mute") {
 		const member = interaction.options.getMember("user");
-		console.log("member:" + member)
 		if (!interaction.memberPermissions.has("KICK_MEMBERS", true)) {
 			return interaction.reply({
 				content: `You dont have the permission to run this command.`,
@@ -176,7 +175,19 @@ client.on("interactionCreate", async(interaction) => {
 			ephemeral: false,
 		})
 	} else if (commandName === "unmute") {
-		
+		const member = interaction.options.getMember("user");
+		if (!interaction.memberPermissions.has("KICK_MEMBERS", true)) {
+			return interaction.reply({
+				content: `You dont have the permission to run this command.`,
+				ephemeral: true,
+			})
+		}
+		let muterole = interaction.guild.roles.cache.find(role => role.name === "Muterated");
+		member.roles.remove(muterole.id);
+		interaction.reply({
+			content: `**${member.user.username}** has been unmuted.`,
+			ephemeral: false,
+		})
 	} else if (commandName === "shutupbot") {
 		interaction.reply({
 			content: `No.`,
