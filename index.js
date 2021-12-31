@@ -88,6 +88,28 @@ commands.push(
 		.setDescription('Rank')
 );
 
+commands.push(
+	new SlashCommandBuilder()
+		.setName('mute')
+		.setDescription('Mutes a user')
+		.addUserOption(option => option
+			.setName("user")
+			.setDescription("User to mute")
+			.setRequired(true)
+		)
+);
+
+commands.push(
+	new SlashCommandBuilder()
+		.setName('unmute')
+		.setDescription('Unmutes a user')
+		.addUserOption(option => option
+			.setName("user")
+			.setDescription("User to mute")
+			.setRequired(true)
+		)
+);
+
 
 client.once("ready", async () => {
 	console.log(`Logged in as ${client.user.tag}.`);
