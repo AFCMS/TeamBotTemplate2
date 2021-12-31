@@ -231,8 +231,8 @@ client.on("interactionCreate", async(interaction) => {
 			embeds: [
 				new Discord.MessageEmbed()
 					.setColor("#0099ff")
-					.setTitle(`Staff Message`)
-					.setDescription(interaction.options.getString("message"))
+					//.setTitle(`Staff Message`)
+					.setDescription(`**${interaction.member.user.username}**: ${interaction.options.getString("message")}`)
 			],
 			ephemeral: false,
 		})
