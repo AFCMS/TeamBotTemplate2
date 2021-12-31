@@ -105,7 +105,7 @@ commands.push(
 		.setDescription('Unmutes a user')
 		.addUserOption(option => option
 			.setName("user")
-			.setDescription("User to mute")
+			.setDescription("User to unmute")
 			.setRequired(true)
 		)
 );
@@ -153,6 +153,11 @@ client.on("interactionCreate", async(interaction) => {
 		interaction.reply({
 			content: "Please wait, stats are still loading...",
 			ephemeral: true,
+		})
+	} else if (commandName === "mute") {
+		interaction.reply({
+			content: "User has been muted.",
+			ephemeral: false,
 		})
 	} 
 });
