@@ -90,7 +90,7 @@ commands.push(
 
 commands.push(
 	new SlashCommandBuilder()
-		.setName('shutupBot')
+		.setName('shutupbot')
 		.setDescription('Stupid command')
 );
 
@@ -172,7 +172,7 @@ client.on("interactionCreate", async(interaction) => {
 			content: `**${interaction.member.user.username}** has been muted.`,
 			ephemeral: false,
 		})
-	} else if (commandName === "shutupBot") {
+	} else if (commandName === "shutupbot") {
 		interaction.reply({
 			content: `No.`,
 			ephemeral: false,
