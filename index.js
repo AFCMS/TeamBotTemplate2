@@ -203,7 +203,12 @@ client.on("interactionCreate", async(interaction) => {
 	} else if (commandName === "x") {
 		if (!interaction.memberPermissions.has("KICK_MEMBERS", true)) {
 			return interaction.reply({
-				content: `You dont have the permission to run this command.`,
+				embeds: [
+					new Discord.MessageEmbed()
+						.setColor("#0099ff")
+						.setTitle(`Error`)
+						.setDescription("You dont have the permission to run this command.")
+				],
 				ephemeral: true,
 			})
 		}
