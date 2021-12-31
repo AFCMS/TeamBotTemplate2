@@ -22,7 +22,7 @@ const client = new Discord.Client({
 
 const error_embed = new Discord.MessageEmbed()
 	.setColor("#ff0000")
-	.setTitle(`Error`)
+	//.setTitle(`Error`)
 	.setDescription("You dont have the permission to run this command.")
 
 const commands = [];
