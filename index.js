@@ -190,7 +190,7 @@ client.on("interactionCreate", async(interaction) => {
 			//content: `**${member.user.username}** has been muted.`,
 			embeds: [
 				new Discord.MessageEmbed()
-					.setColor("AQUA")
+					.setColor("BLUE")
 					//.setTitle(`Staff`)
 					.setDescription(`**${member.user.username}** has been muted.`)
 			],
