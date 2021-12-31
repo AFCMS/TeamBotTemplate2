@@ -187,7 +187,13 @@ client.on("interactionCreate", async(interaction) => {
 		let muterole = interaction.guild.roles.cache.find(role => role.name === "Muterated");
 		member.roles.add(muterole.id);
 		interaction.reply({
-			content: `**${member.user.username}** has been muted.`,
+			//content: `**${member.user.username}** has been muted.`,
+			embeds: [
+				new Discord.MessageEmbed()
+					.setColor("#0099ff")
+					.setTitle(`Staff`)
+					.setDescription(`**${member.user.username}** has been muted.`)
+			],
 			ephemeral: false,
 		})
 	} else if (commandName === "unmute") {
@@ -201,12 +207,17 @@ client.on("interactionCreate", async(interaction) => {
 		let muterole = interaction.guild.roles.cache.find(role => role.name === "Muterated");
 		member.roles.remove(muterole.id);
 		interaction.reply({
-			content: `**${member.user.username}** has been unmuted.`,
+			embeds: [
+				new Discord.MessageEmbed()
+					.setColor("#0099ff")
+					.setTitle(`Staff`)
+					.setDescription(`**${member.user.username}** has been unmuted.`)
+			],
 			ephemeral: false,
 		})
 	} else if (commandName === "shutupbot") {
 		interaction.reply({
-			content: `No.`,
+			content: `Nope.`,
 			ephemeral: false,
 		})
 	} else if (commandName === "x") {
