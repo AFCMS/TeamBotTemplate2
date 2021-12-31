@@ -169,6 +169,11 @@ client.on("interactionCreate", async(interaction) => {
 	} else if (commandName === "rank") {
 		console.log(interaction)
 		return interaction.reply({
+			embeds: [new Discord.MessageEmbed()
+				.setColor("#ff0000")
+				.setTitle(`Error`)
+				.setDescription("Please wait, stats are still loading...")
+			],
 			content: "Please wait, stats are still loading...",
 			ephemeral: true,
 		})
