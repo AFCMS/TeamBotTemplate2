@@ -191,7 +191,7 @@ client.on("interactionCreate", async(interaction) => {
 			embeds: [
 				new Discord.MessageEmbed()
 					.setColor("#0099ff")
-					.setTitle(`Staff`)
+					//.setTitle(`Staff`)
 					.setDescription(`**${member.user.username}** has been muted.`)
 			],
 			ephemeral: false,
@@ -210,7 +210,7 @@ client.on("interactionCreate", async(interaction) => {
 			embeds: [
 				new Discord.MessageEmbed()
 					.setColor("#0099ff")
-					.setTitle(`Staff`)
+					//.setTitle(`Staff`)
 					.setDescription(`**${member.user.username}** has been unmuted.`)
 			],
 			ephemeral: false,
