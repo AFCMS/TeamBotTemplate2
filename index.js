@@ -150,11 +150,18 @@ client.on("interactionCreate", async(interaction) => {
 		})
 	} else if (commandName === "rank") {
 		console.log(interaction)
-		interaction.reply({
+		return interaction.reply({
 			content: "Please wait, stats are still loading...",
 			ephemeral: true,
 		})
 	} else if (commandName === "mute") {
+		const user = interaction.options.getUser("user");
+		if (!interaction.memberPermissions.has("KICK_MEMBERS", true)) {
+			return interaction.reply({
+				content: `You dont have the permission to run this command.`,
+				ephemeral: true,
+			})
+		}
 		interaction.reply({
 			content: `**${interaction.member.user.username}** has been muted.`,
 			ephemeral: false,
