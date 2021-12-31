@@ -209,7 +209,7 @@ client.on("interactionCreate", async(interaction) => {
 		interaction.reply({
 			embeds: [
 				new Discord.MessageEmbed()
-					.setColor("#0099ff")
+					.setColor("BLUE")
 					//.setTitle(`Staff`)
 					.setDescription(`**${member.user.username}** has been unmuted.`)
 			],
@@ -230,7 +230,7 @@ client.on("interactionCreate", async(interaction) => {
 		interaction.reply({
 			embeds: [
 				new Discord.MessageEmbed()
-					.setColor("#0099ff")
+					.setColor("BLUE")
 					//.setTitle(`Staff Message`)
 					.setDescription(`**${interaction.member.user.username}**: ${interaction.options.getString("message")}`)
 			],
