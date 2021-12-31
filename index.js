@@ -156,7 +156,7 @@ client.on("interactionCreate", async(interaction) => {
 		})
 	} else if (commandName === "mute") {
 		interaction.reply({
-			content: `${interaction.member.displayName} has been muted.`,
+			content: `**${interaction.member.user.username}** has been muted.`,
 			ephemeral: false,
 		})
 	} 
