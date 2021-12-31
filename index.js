@@ -21,7 +21,7 @@ const client = new Discord.Client({
 });
 
 const error_embed = new Discord.MessageEmbed()
-	.setColor("#ff0000")
+	.setColor("RED")
 	//.setTitle(`Error`)
 	.setDescription("You dont have the permission to run this command.")
 
@@ -170,7 +170,7 @@ client.on("interactionCreate", async(interaction) => {
 		console.log(interaction)
 		return interaction.reply({
 			embeds: [new Discord.MessageEmbed()
-				.setColor("#ff0000")
+				.setColor("RED")
 				//.setTitle(`Error`)
 				.setDescription("Please wait, stats are still loading...")
 			],
@@ -190,7 +190,7 @@ client.on("interactionCreate", async(interaction) => {
 			//content: `**${member.user.username}** has been muted.`,
 			embeds: [
 				new Discord.MessageEmbed()
-					.setColor("#0099ff")
+					.setColor("AQUA")
 					//.setTitle(`Staff`)
 					.setDescription(`**${member.user.username}** has been muted.`)
 			],
