@@ -129,13 +129,7 @@ client.on("interactionCreate", async(interaction) => {
 	} else if (commandName === "rank") {
 		console.log(interaction)
 		interaction.reply({
-			embeds: [new Discord.MessageEmbed()
-				.setColor("#0099ff")
-				.setTitle(`${stats.name}, ${ordinalSuffixOf(stats.place)}, ${mode}`)
-				.setDescription(`${stats.name} is in ${ordinalSuffixOf(stats.place)} place, with ${Math.round(stats.score)} score, ${mode} mode.`)
-				.addFields(fields)
-				.setTimestamp()],
-			//content: "Hello! :partying_face:",
+			content: "Please wait, stats are still loading...",
 			ephemeral: true,
 		})
 	} 
