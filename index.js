@@ -171,7 +171,7 @@ client.on("interactionCreate", async(interaction) => {
 		return interaction.reply({
 			embeds: [new Discord.MessageEmbed()
 				.setColor("#ff0000")
-				.setTitle(`Error`)
+				//.setTitle(`Error`)
 				.setDescription("Please wait, stats are still loading...")
 			],
 			ephemeral: true,
